@@ -4,16 +4,23 @@ using namespace std;
 
 string GetGuess();
 void PrintIntro();
+
 int main() {
 	PrintIntro();
-	
-	string Player_Guess = GetGuess();
-	cout << "You entered: " << Player_Guess << endl;
+
+	constexpr int MAX_NUMBER_OF_GUESSES = 5;
+	for (int count = 0; count < MAX_NUMBER_OF_GUESSES; count++) {
+		string Player_Guess = GetGuess();
+		cout << "You entered: " << Player_Guess << endl;
+		cout << endl;
+	}
+
 	return 0;
 }
 
 string GetGuess() {
 	string Player_Guess = "";
+	cout << "Enter your guess: ";
 	getline(cin, Player_Guess);
 
 	return Player_Guess;
