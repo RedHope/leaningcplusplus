@@ -10,8 +10,8 @@ int main() {
 
 	//Ask the player for the guess.
 	string Player_Guess = "";
-	cin >> Player_Guess;
+	getline(cin, Player_Guess);
 
-	cout << "You entered: " << Player_Guess << "\n";
+	cout << "You entered: " << Player_Guess << endl;
 	return 0;
 }
