@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string>
+#include "FBullCowGame.h"
 
 bool AskToPlayAgain();
 std::string GetGuess();
@@ -48,6 +49,7 @@ void PlayGame(int Number_Of_Guesses)
 void PrintIntro()
 {
 	// Introduce the Game.
+	FBullCowGame BCGame;
 	constexpr int WORD_LENGTH = 5;
 	std::cout << "Welcome to Bulls and Cows\n";
 	std::cout << "Can you guess the " << WORD_LENGTH << " letter isogram I'm thinking of? \n";
