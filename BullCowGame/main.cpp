@@ -7,14 +7,15 @@ std::string GetGuess();
 void PlayGame(int);
 void PrintIntro();
 
+FBullCowGame BCGame;
+
 int main()
 {
-	constexpr int MAX_NUMBER_OF_GUESSES = 5;
-
+	int MaxTries = BCGame.GetMaxTries();
 	PrintIntro();
 	do
 	{
-		PlayGame(MAX_NUMBER_OF_GUESSES);
+		PlayGame(MaxTries);
 	} while (AskToPlayAgain());
 	return 0;
 }
@@ -31,7 +32,8 @@ bool AskToPlayAgain()
 std::string GetGuess()
 {
 	std::string Player_Guess = "";
-	std::cout << "Enter your guess: ";
+	int Current_Try = BCGame.GetCurrentTry();
+	std::cout << "Try " << Current_Try << ": Enter your guess: ";
 	getline(std::cin, Player_Guess);
 
 	return Player_Guess;
@@ -42,6 +44,7 @@ void PlayGame(int Number_Of_Guesses)
 	for (int count = 0; count < Number_Of_Guesses; count++) {
 		std::string Player_Guess = GetGuess();
 		std::cout << "You entered: " << Player_Guess << std::endl;
+		BCGame.IncrementCurrentTry();
 		std::cout << std::endl;
 	}
 
@@ -49,7 +52,6 @@ void PlayGame(int Number_Of_Guesses)
 void PrintIntro()
 {
 	// Introduce the Game.
-	FBullCowGame BCGame;
 	constexpr int WORD_LENGTH = 5;
 	std::cout << "Welcome to Bulls and Cows\n";
 	std::cout << "Can you guess the " << WORD_LENGTH << " letter isogram I'm thinking of? \n";

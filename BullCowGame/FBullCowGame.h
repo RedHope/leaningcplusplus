@@ -8,9 +8,10 @@ public:
 	bool CheckCurrentUserInput(std::string);
 	int GetMaxTries();
 	int GetCurrentTry();
+	void IncrementCurrentTry();
 	bool IsGameWon();
 	void Reset(); // Make a richer return value;
 private:
-	int MyCurrentTry;
-	int MyMaxTries;
+	int MyCurrentTry = 1;
+	int MyMaxTries = 5;
 };
