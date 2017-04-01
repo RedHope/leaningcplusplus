@@ -1,14 +1,15 @@
 #pragma once
+#include <string>
 
+// Another way of thining about this, is similar to interfaces in JAVA.
 class FBullCowGame {
 public:
-	void Reset(); // Make a richer return value;
+	void AllUserInputStrings();
+	bool CheckCurrentUserInput(std::string);
 	int GetMaxTries();
 	int GetCurrentTry();
-	void AllUserInputStrings();
-	bool CheckCurrentUserInput(string);
 	bool IsGameWon();
-
+	void Reset(); // Make a richer return value;
 private:
 	int MyCurrentTry;
 	int MyMaxTries;
