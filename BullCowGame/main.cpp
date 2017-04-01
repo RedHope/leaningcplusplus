@@ -3,17 +3,14 @@
 using namespace std;
 
 string GetGuess();
+void PlayGame(int);
 void PrintIntro();
 
 int main() {
-	PrintIntro();
-
 	constexpr int MAX_NUMBER_OF_GUESSES = 5;
-	for (int count = 0; count < MAX_NUMBER_OF_GUESSES; count++) {
-		string Player_Guess = GetGuess();
-		cout << "You entered: " << Player_Guess << endl;
-		cout << endl;
-	}
+
+	PrintIntro();
+	PlayGame(MAX_NUMBER_OF_GUESSES);
 
 	return 0;
 }
@@ -26,6 +23,14 @@ string GetGuess() {
 	return Player_Guess;
 }
 
+void PlayGame(int Number_Of_Guesses) {
+	for (int count = 0; count < Number_Of_Guesses; count++) {
+		string Player_Guess = GetGuess();
+		cout << "You entered: " << Player_Guess << endl;
+		cout << endl;
+	}
+
+}
 void PrintIntro() {
 	// Introduce the Game.
 	constexpr int WORD_LENGTH = 5;
