@@ -13,14 +13,14 @@ using int32 = int;
 bool AskToPlayAgain();
 FText GetGuess();
 void PlayGame(int32);
-void Print32int32ro();
+void PrintIntro();
 
 FBullCowGame BCGame;
 
 int main()
 {
 	int32 MaxTries = BCGame.GetMaxTries();
-	Print32int32ro();
+	PrintIntro();
 	do
 	{
 		PlayGame(MaxTries);
@@ -64,10 +64,10 @@ void PlayGame(int32 Number_Of_Guesses)
 	}
 
 }
-void Print32int32ro()
+void PrintIntro()
 {
 	// int32roduce the Game.
-	constexpr int32 WORD_LENGTH = 5;
+	const int32 WORD_LENGTH = BCGame.GetHiddenWordLength();
 	std::cout << "Welcome to Bulls and Cows\n";
 	std::cout << "Can you guess the " << WORD_LENGTH << " letter isogram I'm thinking of? \n";
 

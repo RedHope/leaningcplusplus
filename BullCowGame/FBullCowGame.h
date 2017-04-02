@@ -16,10 +16,13 @@ public:
 	FBullCowGame(); // Constructor
 	void AllUserInputStrings();
 	bool CheckCurrentUserInput(FString) const;
+	bool IsGameWon() const;
+
 	int32 GetMaxTries() const;
 	int32 GetCurrentTry() const;
+	int32 GetHiddenWordLength() const;
+
 	FBullCowCount SubmitGuess(FString);
-	bool IsGameWon() const;
 	void Reset(); // Make a richer return value;
 private:
 	int32 MyCurrentTry;

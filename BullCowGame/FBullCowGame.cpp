@@ -34,6 +34,11 @@ int32 FBullCowGame::GetCurrentTry() const
 	return MyCurrentTry;
 }
 
+int32 FBullCowGame::GetHiddenWordLength() const
+{
+	return HiddenWord.length();
+}
+
 // Receives valid guess, increments turn and returns count.
 FBullCowCount FBullCowGame::SubmitGuess(FString Guess)
 {
