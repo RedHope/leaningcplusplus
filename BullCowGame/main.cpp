@@ -40,7 +40,8 @@ std::string GetGuess()
 }
 
 void PlayGame(int Number_Of_Guesses)
-{
+{	
+	BCGame.Reset();
 	for (int count = 0; count < Number_Of_Guesses; count++) {
 		std::string Player_Guess = GetGuess();
 		std::cout << "You entered: " << Player_Guess << std::endl;

@@ -2,6 +2,11 @@
 
 // This would be similar to impl(s) in JAVA.
 
+FBullCowGame::FBullCowGame()
+{
+	Reset();
+}
+
 void FBullCowGame::AllUserInputStrings()
 {
 	return;
@@ -34,5 +39,8 @@ void FBullCowGame::IncrementCurrentTry()
 
 void FBullCowGame::Reset()
 {
+	MyCurrentTry = 1;
+	MyMaxTries = 8;
+
 	return;
 }
