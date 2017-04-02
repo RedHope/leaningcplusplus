@@ -1,5 +1,7 @@
 #include "FBullCowGame.h"
 
+using FString = std::string;
+using int32 = int;
 // This would be similar to impl(s) in JAVA.
 
 FBullCowGame::FBullCowGame()
@@ -12,7 +14,7 @@ void FBullCowGame::AllUserInputStrings()
 	return;
 }
 
-bool FBullCowGame::CheckCurrentUserInput(std::string) const
+bool FBullCowGame::CheckCurrentUserInput(FString) const
 {
 	return false;
 }
@@ -22,12 +24,12 @@ bool FBullCowGame::IsGameWon() const
 	return false;
 }
 
-int FBullCowGame::GetMaxTries() const
+int32 FBullCowGame::GetMaxTries() const
 {
 	return MyMaxTries;
 }
 
-int FBullCowGame::GetCurrentTry() const
+int32 FBullCowGame::GetCurrentTry() const
 {
 	return MyCurrentTry;
 }
