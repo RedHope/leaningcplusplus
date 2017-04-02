@@ -7,22 +7,22 @@ void FBullCowGame::AllUserInputStrings()
 	return;
 }
 
-bool FBullCowGame::CheckCurrentUserInput(std::string)
+bool FBullCowGame::CheckCurrentUserInput(std::string) const
 {
 	return false;
 }
 
-bool FBullCowGame::IsGameWon()
+bool FBullCowGame::IsGameWon() const
 {
 	return false;
 }
 
-int FBullCowGame::GetMaxTries()
+int FBullCowGame::GetMaxTries() const
 {
 	return MyMaxTries;
 }
 
-int FBullCowGame::GetCurrentTry()
+int FBullCowGame::GetCurrentTry() const
 {
 	return MyCurrentTry;
 }

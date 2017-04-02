@@ -5,11 +5,11 @@
 class FBullCowGame {
 public:
 	void AllUserInputStrings();
-	bool CheckCurrentUserInput(std::string);
-	int GetMaxTries();
-	int GetCurrentTry();
+	bool CheckCurrentUserInput(std::string) const;
+	int GetMaxTries() const;
+	int GetCurrentTry() const;
 	void IncrementCurrentTry();
-	bool IsGameWon();
+	bool IsGameWon() const;
 	void Reset(); // Make a richer return value;
 private:
 	int MyCurrentTry = 1;
