@@ -56,7 +56,6 @@ void PlayGame(int32 Number_Of_Guesses)
 		// TODO: Submit valid guess.
 		// TODO: Print32 number of bulls and cows. 
 		std::cout << "You entered: " << Player_Guess << std::endl;
-		BCGame.IncrementCurrentTry();
 		std::cout << std::endl;
 	}
 

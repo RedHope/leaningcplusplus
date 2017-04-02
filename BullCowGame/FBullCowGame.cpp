@@ -34,15 +34,18 @@ int32 FBullCowGame::GetCurrentTry() const
 	return MyCurrentTry;
 }
 
-void FBullCowGame::IncrementCurrentTry()
+// Receives valid guess, increments turn and returns count.
+BullCowCount FBullCowGame::SubmitGuess(FString)
 {
+	// increment the current try
 	MyCurrentTry++;
+	return BullCowCount();
 }
 
 void FBullCowGame::Reset()
 {
 	MyCurrentTry = 1;
 	MyMaxTries = 8;
-
+	HiddenWord = "planet";
 	return;
 }
