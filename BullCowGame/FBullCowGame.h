@@ -10,12 +10,20 @@ struct FBullCowCount
 	int Bulls = 0;
 	int Cows = 0;
 };
+
+enum class EWordStatus
+{
+	OK,
+	INVALID_LENGTH,
+	NOT_ISOGRAM,
+	NO_VALUE
+};
 // Another way of thining about this, is similar to interfaces in JAVA.
 class FBullCowGame {
 public:
 	FBullCowGame(); // Constructor
 	void AllUserInputStrings();
-	bool CheckCurrentUserInput(FString) const;
+	EWordStatus CheckCurrentUserInput(FString) const;
 	bool IsGameWon() const;
 
 	int32 GetMaxTries() const;

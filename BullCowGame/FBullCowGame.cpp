@@ -14,9 +14,9 @@ void FBullCowGame::AllUserInputStrings()
 	return;
 }
 
-bool FBullCowGame::CheckCurrentUserInput(FString) const
+EWordStatus FBullCowGame::CheckCurrentUserInput(FString) const
 {
-	return false;
+	return EWordStatus::OK; //TODO Add check, return error / success
 }
 
 bool FBullCowGame::IsGameWon() const
