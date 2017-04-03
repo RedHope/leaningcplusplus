@@ -14,9 +14,16 @@ void FBullCowGame::AllUserInputStrings()
 	return;
 }
 
-EWordStatus FBullCowGame::CheckCurrentUserInput(FString) const
+EGuessStatus FBullCowGame::CheckCurrentUserInput(FString input) const
 {
-	return EWordStatus::OK; //TODO Add check, return error / success
+	//TODO Add check, return error / success
+
+	if (input.length() != HiddenWord.length()) {
+		return EGuessStatus::INVALID_LENGTH;
+	}
+	else {
+		return EGuessStatus::OK;
+	}
 }
 
 bool FBullCowGame::IsGameWon() const

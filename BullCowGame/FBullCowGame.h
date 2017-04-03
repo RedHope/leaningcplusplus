@@ -11,10 +11,12 @@ struct FBullCowCount
 	int Cows = 0;
 };
 
-enum class EWordStatus
+enum class EGuessStatus
 {
 	OK,
 	INVALID_LENGTH,
+	INVALID_STATUS,
+	NOT_ALL_LOWER_CASE,
 	NOT_ISOGRAM,
 	NO_VALUE
 };
@@ -23,7 +25,7 @@ class FBullCowGame {
 public:
 	FBullCowGame(); // Constructor
 	void AllUserInputStrings();
-	EWordStatus CheckCurrentUserInput(FString) const;
+	EGuessStatus CheckCurrentUserInput(FString) const;
 	bool IsGameWon() const;
 
 	int32 GetMaxTries() const;
