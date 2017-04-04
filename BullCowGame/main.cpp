@@ -107,6 +107,7 @@ void PrintIntro()
 void PrintLossSummary() {
 	std::cout << "Oh no, you lost!\n";
 	std::cout << "You've exhausted all your available turns\n";
+	return;
 }
 
 void PrintGameSummary(bool bPlayerWon) {
@@ -118,9 +119,11 @@ void PrintGameSummary(bool bPlayerWon) {
 	{
 		PrintLossSummary();
 	}
+	return;
 }
 
 void PrintWinSummary() {
 	std::cout << "Congratulations! That is the right word\n";
 	std::cout << "You guessed the right word in: " << BCGame.GetCurrentTry() - 1 << " turn(s)\n";
+	return;
 }
