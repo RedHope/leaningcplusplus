@@ -58,13 +58,13 @@ FText GetValidGuess()
 			std::cout << "Please enter a " << BCGame.GetHiddenWordLength() << " letter word.\n";
 			break;
 		case EGuessStatus::NOT_ALL_LOWER_CASE:
-			std::cout << "Please enter your guess in all lower case";
+			std::cout << "Please enter your guess in all lower case. \n";
 			break;
 		case EGuessStatus::NOT_ISOGRAM:
-			std::cout << "The word you entered is not an isogram";
+			std::cout << "The word you entered is not an isogram. \n";
 			break;
 		case EGuessStatus::NO_VALUE:
-			std::cout << "No value entered!!";
+			std::cout << "No value entered!!. \n";
 			break;
 		default:
 			return Player_Guess;

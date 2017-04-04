@@ -22,7 +22,10 @@ EGuessStatus FBullCowGame::CheckCurrentUserInput(FString input) const
 	//TODO Add check, return error / success
 
 	if (input.length() != HiddenWord.length()) {
-		return EGuessStatus::INVALID_LENGTH;
+		return EGuessStatus::INVALID_LENGTH;	
+	}
+	else if (!IsLowerCase(input)) {
+		return EGuessStatus::NOT_ALL_LOWER_CASE;
 	}
 	else if (!IsIsogram(input)) {
 		return EGuessStatus::NOT_ISOGRAM;
@@ -37,11 +40,11 @@ bool FBullCowGame::IsGameWon() const
 	return bGameWon == true;
 }
 
-bool FBullCowGame::IsIsogram(FString User_input) const
+bool FBullCowGame::IsIsogram(FString User_Input) const
 {
 	TMap<char, bool> LetterSeen; // instantiate map
 
-	for (auto Letter : User_input)
+	for (auto Letter : User_Input)
 	{
 		Letter = tolower(Letter);
 		if (LetterSeen[Letter] == true) {
@@ -50,6 +53,16 @@ bool FBullCowGame::IsIsogram(FString User_input) const
 		else {
 			LetterSeen[Letter] = true;
 		}
+	}
+
+	return true;
+}
+
+bool FBullCowGame::IsLowerCase(FString User_Input) const
+{
+	for (auto Letter : User_Input)
+	{
+		if (!islower(Letter)) { return false; }
 	}
 
 	return true;
