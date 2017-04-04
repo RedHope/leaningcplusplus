@@ -1,6 +1,6 @@
 #include "FBullCowGame.h"
 #include <map>
-#define TMap std::map;
+#define TMap std::map
 
 using FString = std::string;
 using int32 = int;
@@ -37,15 +37,21 @@ bool FBullCowGame::IsGameWon() const
 	return bGameWon == true;
 }
 
-bool FBullCowGame::IsIsogram(FString) const
+bool FBullCowGame::IsIsogram(FString User_input) const
 {
-	// PLANET
-	// Create a new Map for [A-Z], initialize all values to zero. 
-	// Loop through all characters of the string. 
-		// Check if value for the corresponding character in map is equal to 1
-			// if true, return false
-			// else increment value of character in the map. 
-	// return true
+	TMap<char, bool> LetterSeen; // instantiate map
+
+	for (auto Letter : User_input)
+	{
+		Letter = tolower(Letter);
+		if (LetterSeen[Letter] == true) {
+			return false;
+		}
+		else {
+			LetterSeen[Letter] = true;
+		}
+	}
+
 	return true;
 }
 
