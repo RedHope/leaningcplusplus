@@ -34,7 +34,7 @@ int main()
 bool AskToPlayAgain()
 {
 	FText User_Input;
-	std::cout << "Do you wish to play again?";
+	std::cout << "Do you wish to play again? \n";
 	getline(std::cin, User_Input);
 
 	return User_Input[0] == 'Y' || User_Input[0] == 'y';
@@ -69,6 +69,7 @@ FText GetValidGuess()
 		default:
 			return Player_Guess;
 		}
+		std::cout << std::endl;
 	} while (Status != EGuessStatus::OK);
 
 	return Player_Guess;

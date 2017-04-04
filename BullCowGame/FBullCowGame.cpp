@@ -19,16 +19,14 @@ void FBullCowGame::AllUserInputStrings()
 
 EGuessStatus FBullCowGame::CheckCurrentUserInput(FString input) const
 {
-	//TODO Add check, return error / success
-
-	if (input.length() != HiddenWord.length()) {
-		return EGuessStatus::INVALID_LENGTH;	
-	}
-	else if (!IsLowerCase(input)) {
+	if (!IsLowerCase(input)) {
 		return EGuessStatus::NOT_ALL_LOWER_CASE;
 	}
 	else if (!IsIsogram(input)) {
 		return EGuessStatus::NOT_ISOGRAM;
+	}
+	else if (input.length() != HiddenWord.length()) {
+		return EGuessStatus::INVALID_LENGTH;
 	}
 	else {
 		return EGuessStatus::OK;
