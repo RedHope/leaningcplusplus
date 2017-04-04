@@ -14,6 +14,9 @@ bool AskToPlayAgain();
 FText GetValidGuess();
 void PlayGame(int32);
 void PrintIntro();
+void PrintLossSummary();
+void PrintGameSummary(bool);
+void PrintWinSummary();
 
 FBullCowGame BCGame;
 
@@ -87,6 +90,9 @@ void PlayGame(int32 Number_Of_Guesses)
 		std::cout << std::endl;
 	}
 
+	PrintGameSummary(BCGame.IsGameWon());
+
+	return;
 }
 void PrintIntro()
 {
@@ -96,4 +102,25 @@ void PrintIntro()
 	std::cout << "Can you guess the " << WORD_LENGTH << " letter isogram I'm thinking of? \n";
 
 	return;
+}
+
+void PrintLossSummary() {
+	std::cout << "Oh no, you lost!\n";
+	std::cout << "You've exhausted all your available turns\n";
+}
+
+void PrintGameSummary(bool bPlayerWon) {
+	if (bPlayerWon == true)
+	{
+		PrintWinSummary();
+	}
+	else
+	{
+		PrintLossSummary();
+	}
+}
+
+void PrintWinSummary() {
+	std::cout << "Congratulations! That is the right word\n";
+	std::cout << "You guessed the right word in: " << BCGame.GetCurrentTry() - 1 << " turn(s)\n";
 }
