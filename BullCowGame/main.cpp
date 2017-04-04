@@ -74,7 +74,9 @@ FText GetValidGuess()
 void PlayGame(int32 Number_Of_Guesses)
 {
 	BCGame.Reset();
-	for (int32 count = 0; count < Number_Of_Guesses; count++) {
+	while (!BCGame.IsGameWon() && BCGame.GetCurrentTry() < Number_Of_Guesses)
+	{
+
 		FText Player_Guess = GetValidGuess();
 		// TODO: Submit valid guess.
 		FBullCowCount BullCowCount = BCGame.SubmitValidGuess(Player_Guess);

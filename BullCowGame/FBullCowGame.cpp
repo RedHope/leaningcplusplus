@@ -28,7 +28,7 @@ EGuessStatus FBullCowGame::CheckCurrentUserInput(FString input) const
 
 bool FBullCowGame::IsGameWon() const
 {
-	return false;
+	return bGameWon == true;
 }
 
 int32 FBullCowGame::GetMaxTries() const
@@ -63,6 +63,11 @@ FBullCowCount FBullCowGame::SubmitValidGuess(FString Guess)
 				CurrentTryBullCowCount.Cows++;
 			}
 		}
+	}
+
+	if (CurrentTryBullCowCount.Bulls == WORD_LENGTH && CurrentTryBullCowCount.Cows == 0)
+	{
+		bGameWon = true;
 	}
 	return CurrentTryBullCowCount;
 }

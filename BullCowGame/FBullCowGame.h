@@ -35,6 +35,7 @@ public:
 	FBullCowCount SubmitValidGuess(FString);
 	void Reset(); // Make a richer return value;
 private:
+	bool bGameWon;
 	int32 MyCurrentTry;
 	int32 MyMaxTries;
 	FString HiddenWord;
