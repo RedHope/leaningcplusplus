@@ -88,6 +88,7 @@ void PlayGame(int32 Number_Of_Guesses)
 
 		std::cout << "Bulls = " << BullCowCount.Bulls;
 		std::cout << "Cows = " << BullCowCount.Cows << std::endl;
+		std::cout << "You have " << Number_Of_Guesses - BCGame.GetCurrentTry() + 1 << " turns left. \n";
 		std::cout << std::endl;
 	}
 
