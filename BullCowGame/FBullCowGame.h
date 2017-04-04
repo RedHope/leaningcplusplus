@@ -32,7 +32,7 @@ public:
 	int32 GetCurrentTry() const;
 	int32 GetHiddenWordLength() const;
 
-	FBullCowCount SubmitGuess(FString);
+	FBullCowCount SubmitValidGuess(FString);
 	void Reset(); // Make a richer return value;
 private:
 	int32 MyCurrentTry;

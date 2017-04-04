@@ -47,19 +47,19 @@ int32 FBullCowGame::GetHiddenWordLength() const
 }
 
 // Receives valid guess, increments turn and returns count.
-FBullCowCount FBullCowGame::SubmitGuess(FString Guess)
+FBullCowCount FBullCowGame::SubmitValidGuess(FString Guess)
 {
 	// increment the current try
 	MyCurrentTry++;
 
 	FBullCowCount CurrentTryBullCowCount;
-	const int32 HIDDEN_WORD_LENGTH = HiddenWord.length();
-	for (int32 i = 0; i < HIDDEN_WORD_LENGTH; i++) {
-		for (int32 j = 0; j < HIDDEN_WORD_LENGTH; j++) {
+	const int32 WORD_LENGTH = HiddenWord.length(); //assuming guess is valid.
+	for (int32 i = 0; i < WORD_LENGTH; i++) {
+		for (int32 j = 0; j < WORD_LENGTH; j++) {
 			if (Guess[i] == HiddenWord[j] && i == j) {
 				CurrentTryBullCowCount.Bulls++;
 			}
-			else if (Guess[i] == HiddenWord[j] && i != j ){
+			else if (Guess[i] == HiddenWord[j] && i != j) {
 				CurrentTryBullCowCount.Cows++;
 			}
 		}
