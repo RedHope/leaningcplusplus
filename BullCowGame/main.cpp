@@ -24,7 +24,7 @@ FBullCowGame BCGame;
 int main()
 {
 	PrintIntro();
-	int32 UserWordLength = GetWordLengthFromUser();
+	const int32 UserWordLength = GetWordLengthFromUser();
 	do
 	{
 		PlayGame(UserWordLength);
@@ -90,7 +90,7 @@ int32 GetWordLengthFromUser()
 
 void PlayGame(int32 User_Word_Length)
 {
-	int32 Number_Of_Guesses = BCGame.GetMaxTries(User_Word_Length);
+	const int32 Number_Of_Guesses = BCGame.GetMaxTries(User_Word_Length);
 	BCGame.Reset(User_Word_Length);
 	while (!BCGame.IsGameWon() && BCGame.GetCurrentTry() < Number_Of_Guesses)
 	{
