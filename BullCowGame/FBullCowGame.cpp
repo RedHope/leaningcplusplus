@@ -1,3 +1,7 @@
+/*
+Implementation of the BullCowGame class. 
+*/
+#pragma once
 #include "FBullCowGame.h"
 #include <map>
 #define TMap std::map
@@ -17,7 +21,8 @@ void FBullCowGame::AllUserInputStrings()
 	return;
 }
 
-EGuessStatus FBullCowGame::CheckCurrentUserInput(FString input) const
+// Validates user input and returns a status fron Enum.
+EGuessStatus FBullCowGame::ValidateUserInput(FString input) const
 {
 	if (!IsLowerCase(input)) {
 		return EGuessStatus::NOT_ALL_LOWER_CASE;
@@ -38,6 +43,7 @@ bool FBullCowGame::IsGameWon() const
 	return bGameWon == true;
 }
 
+// Checks whether the user input is an isogram. 
 bool FBullCowGame::IsIsogram(FString User_Input) const
 {
 	TMap<char, bool> LetterSeen; // instantiate map
@@ -56,6 +62,7 @@ bool FBullCowGame::IsIsogram(FString User_Input) const
 	return true;
 }
 
+//checks if user input is all lower case.
 bool FBullCowGame::IsLowerCase(FString User_Input) const
 {
 	for (auto Letter : User_Input)
@@ -68,7 +75,7 @@ bool FBullCowGame::IsLowerCase(FString User_Input) const
 
 int32 FBullCowGame::GetMaxTries(int32 wordLength) const
 {
-	TMap<int32, int32> WordLengthToMaxTurnsMap = { {2,3}, {3,5}, {4,5}, {5,6}, {6, 9} };
+	TMap<int32, int32> WordLengthToMaxTurnsMap = { {2,3}, {3,5}, {4,5}, {5,10}, {6, 14} };
 
 	return WordLengthToMaxTurnsMap[wordLength];
 }
@@ -84,6 +91,7 @@ int32 FBullCowGame::GetHiddenWordLength() const
 }
 
 // Receives valid guess, increments turn and returns count.
+// Sets the isGameWon if user enters the correct word.
 FBullCowCount FBullCowGame::SubmitValidGuess(FString Guess)
 {
 	// increment the current try
@@ -109,6 +117,7 @@ FBullCowCount FBullCowGame::SubmitValidGuess(FString Guess)
 	return CurrentTryBullCowCount;
 }
 
+// Initializer function.
 void FBullCowGame::Reset(int32 User_Word_Length)
 {
 	TMap<int32, FString> WordLengthToWordMap = { { 0, ""},  {3, "car"}, {4, "home"}, {5, "plane"}, {6, "string"} };

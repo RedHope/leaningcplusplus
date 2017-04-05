@@ -51,7 +51,7 @@ FText GetValidGuess()
 		std::cout << "Try " << Current_Try << ": Enter your guess: ";
 		getline(std::cin, Player_Guess);
 
-		EGuessStatus Status = BCGame.CheckCurrentUserInput(Player_Guess);
+		EGuessStatus Status = BCGame.ValidateUserInput(Player_Guess);
 
 		switch (Status)
 		{
@@ -77,7 +77,7 @@ FText GetValidGuess()
 }
 
 
-int32 GetWordLengthFromUser() 
+int32 GetWordLengthFromUser()
 {
 	FString User_Input;
 	std::cout << "What length of word would you like to play with?\n";
@@ -101,7 +101,7 @@ void PlayGame(int32 User_Word_Length)
 		std::cout << "You entered: " << Player_Guess << std::endl;
 
 		std::cout << "Bulls = " << BullCowCount.Bulls;
-		std::cout << "Cows = " << BullCowCount.Cows << std::endl;
+		std::cout << ". Cows = " << BullCowCount.Cows << std::endl;
 		std::cout << "You have " << Number_Of_Guesses - BCGame.GetCurrentTry() + 1 << " turns left. \n";
 		std::cout << std::endl;
 	}
@@ -127,14 +127,8 @@ void PrintLossSummary() {
 }
 
 void PrintGameSummary(bool bPlayerWon) {
-	if (bPlayerWon == true)
-	{
-		PrintWinSummary();
-	}
-	else
-	{
-		PrintLossSummary();
-	}
+	if (bPlayerWon) { PrintWinSummary(); }
+	else { PrintLossSummary(); }
 	return;
 }
 

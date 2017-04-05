@@ -1,3 +1,6 @@
+/*
+BullCowGame class. Actual game logic and win conditions stored here. 
+*/
 #pragma once
 #include <string>
 
@@ -25,7 +28,7 @@ class FBullCowGame {
 public:
 	FBullCowGame(); // Constructor
 	void AllUserInputStrings();
-	EGuessStatus CheckCurrentUserInput(FString) const;
+	EGuessStatus ValidateUserInput(FString) const;
 	bool IsGameWon() const;
 
 	int32 GetMaxTries(int32) const;
