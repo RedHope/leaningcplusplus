@@ -12,6 +12,7 @@ using FText = std::string;
 using int32 = int;
 bool AskToPlayAgain();
 FText GetValidGuess();
+int32 GetWordLengthFromUser();
 void PlayGame(int32);
 void PrintIntro();
 void PrintLossSummary();
@@ -22,11 +23,11 @@ FBullCowGame BCGame;
 
 int main()
 {
-	int32 MaxTries = BCGame.GetMaxTries();
 	PrintIntro();
+	int32 UserWordLength = GetWordLengthFromUser();
 	do
 	{
-		PlayGame(MaxTries);
+		PlayGame(UserWordLength);
 	} while (AskToPlayAgain());
 	return 0;
 }
@@ -75,9 +76,22 @@ FText GetValidGuess()
 	return Player_Guess;
 }
 
-void PlayGame(int32 Number_Of_Guesses)
+
+int32 GetWordLengthFromUser() 
 {
-	BCGame.Reset();
+	FString User_Input;
+	std::cout << "What length of word would you like to play with?\n";
+	std::cout << "Pick one from 3 to 6: " << std::endl;
+
+	getline(std::cin, User_Input);
+
+	return std::stoi(User_Input);
+}
+
+void PlayGame(int32 User_Word_Length)
+{
+	int32 Number_Of_Guesses = BCGame.GetMaxTries(User_Word_Length);
+	BCGame.Reset(User_Word_Length);
 	while (!BCGame.IsGameWon() && BCGame.GetCurrentTry() < Number_Of_Guesses)
 	{
 

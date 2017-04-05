@@ -9,7 +9,7 @@ using int32 = int;
 
 FBullCowGame::FBullCowGame()
 {
-	Reset();
+	Reset(0);
 }
 
 void FBullCowGame::AllUserInputStrings()
@@ -66,9 +66,11 @@ bool FBullCowGame::IsLowerCase(FString User_Input) const
 	return true;
 }
 
-int32 FBullCowGame::GetMaxTries() const
+int32 FBullCowGame::GetMaxTries(int32 wordLength) const
 {
-	return MyMaxTries;
+	TMap<int32, int32> WordLengthToMaxTurnsMap = { {2,3}, {3,5}, {4,5}, {5,6}, {6, 9} };
+
+	return WordLengthToMaxTurnsMap[wordLength];
 }
 
 int32 FBullCowGame::GetCurrentTry() const
@@ -107,10 +109,10 @@ FBullCowCount FBullCowGame::SubmitValidGuess(FString Guess)
 	return CurrentTryBullCowCount;
 }
 
-void FBullCowGame::Reset()
+void FBullCowGame::Reset(int32 User_Word_Length)
 {
+	TMap<int32, FString> WordLengthToWordMap = { { 0, ""},  {3, "car"}, {4, "home"}, {5, "plane"}, {6, "string"} };
 	MyCurrentTry = 1;
-	MyMaxTries = 8;
-	HiddenWord = "planet";
+	HiddenWord = WordLengthToWordMap[User_Word_Length];
 	return;
 }
