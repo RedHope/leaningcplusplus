@@ -1,7 +1,7 @@
 /*
 Console executable that makes use of BullCow Class.
-The view in MVC. Controls user int32eraction.
-Game locig in FBullCowGame
+The view in MVC. Controls user interaction.
+Game logic in FBullCowGame
 */
 
 #include <iostream>
